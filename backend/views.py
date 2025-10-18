@@ -35,3 +35,9 @@ def delete_product(request,id):
     products=get_object_or_404(models.Product,id=id)
     products.delete()
     return redirect('product_list')
+from .forms import ApplicationForm 
+
+def index(request): 
+    form = ApplicationForm() 
+
+    return render(request, 'inventory/application_form.html', {'form': form}) 
